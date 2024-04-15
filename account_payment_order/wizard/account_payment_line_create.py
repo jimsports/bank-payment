@@ -42,6 +42,9 @@ class AccountPaymentLineCreate(models.TransientModel):
     move_line_ids = fields.Many2many(
         comodel_name="account.move.line", string="Move Lines"
     )
+    allow_negative = fields.Boolean(
+        string="Allow Negative Move Lines",
+    )
 
     @api.model
     def default_get(self, field_list):
@@ -120,13 +123,15 @@ class AccountPaymentLineCreate(models.TransientModel):
             # Do not propose partially reconciled credit lines,
             # as they are deducted from a customer invoice, and
             # will not be refunded with a payment.
+            if not self.allow_negative:
+                domain.append(('credit', '>', 0))
             domain += [
-                ("credit", ">", 0),
                 ("account_id.internal_type", "in", ["payable", "receivable"]),
             ]
         elif self.order_id.payment_type == "inbound":
+            if not self.allow_negative:
+                domain.append(('debit', '>', 0))
             domain += [
-                ("debit", ">", 0),
                 ("account_id.internal_type", "in", ["receivable", "payable"]),
             ]
         # Exclude lines that are already in a non-cancelled
@@ -168,6 +173,7 @@ class AccountPaymentLineCreate(models.TransientModel):
         "allow_blocked",
         "payment_mode",
         "partner_ids",
+        "allow_negative"
     )
     def move_line_filters_change(self):
         domain = self._prepare_move_line_domain()
