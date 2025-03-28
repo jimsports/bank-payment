@@ -66,6 +66,9 @@ class AccountPaymentLine(models.Model):
         ondelete="restrict",
         check_company=True,
     )
+    partner_bank_acc_type = fields.Selection(
+        related="partner_bank_id.acc_type", string="Bank Account Type"
+    )
     date = fields.Date(string="Payment Date")
     # communication field is required=False because we don't want to block
     # the creation of lines from move/invoices when communication is empty
@@ -187,7 +190,7 @@ class AccountPaymentLine(models.Model):
             "destination_account_id": self.move_line_id.account_id.id,
             "company_id": self.order_id.company_id.id,
             "amount": sum(self.mapped("amount_currency")),
-            "date": self[:1].date,
+            "date": fields.Date.today(),
             "currency_id": self.currency_id.id,
             "ref": self.order_id.name,
             "payment_reference": " - ".join([line.communication for line in self]),

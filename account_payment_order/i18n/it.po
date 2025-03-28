@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-23 03:38+0000\n"
-"PO-Revision-Date: 2024-03-04 09:36+0000\n"
+"PO-Revision-Date: 2024-10-22 10:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: account_payment_order
 #: code:addons/account_payment_order/models/account_move.py:0
@@ -229,6 +229,11 @@ msgid "Bank Account Required"
 msgstr "Conto bancario necessario"
 
 #. module: account_payment_order
+#: model:ir.model.fields,field_description:account_payment_order.field_account_payment_line__partner_bank_acc_type
+msgid "Bank Account Type"
+msgstr ""
+
+#. module: account_payment_order
 #: model:ir.model.fields,field_description:account_payment_order.field_account_payment_order__journal_id
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_order_search
 msgid "Bank Journal"
@@ -238,6 +243,12 @@ msgstr "Sezionale banca"
 #: model:ir.model.fields,help:account_payment_order.field_account_move_line__partner_bank_id
 msgid "Bank account on which we should pay the supplier"
 msgstr "Conto bancario su cui dovremmo pagare il fornitore"
+
+#. module: account_payment_order
+#: model:ir.model.fields,help:account_payment_order.field_account_payment_line__partner_bank_acc_type
+msgid ""
+"Bank account type: Normal or IBAN. Inferred from the bank account number."
+msgstr ""
 
 #. module: account_payment_order
 #: model:ir.model.fields.selection,name:account_payment_order.selection__account_payment_order__state__cancel
@@ -254,7 +265,7 @@ msgstr "Annulla pagamenti"
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_line_create_form
 msgid "Choose Move Lines Filter Options"
-msgstr "Scegli opzioni di filtro per righe movimenti"
+msgstr "Scegliere opzioni di filtro per righe movimenti"
 
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_line_create_form
@@ -298,7 +309,7 @@ msgstr "Conto bancario aziendale"
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_order_form
 msgid "Confirm Payments"
-msgstr "Conferma Pagamenti"
+msgstr "Conferma pagamenti"
 
 #. module: account_payment_order
 #: model:ir.model.fields.selection,name:account_payment_order.selection__account_payment_order__state__open
@@ -314,7 +325,7 @@ msgstr "Crea"
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_invoice_payment_line_multi_form
 msgid "Create Payment Lines"
-msgstr "Crea righe di pagamento"
+msgstr "Crea righe pagamento"
 
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_order_form
@@ -431,7 +442,7 @@ msgstr "Scadenza"
 #: model:ir.model.fields.selection,name:account_payment_order.selection__account_payment_order__state__generated
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_order_search
 msgid "File Generated"
-msgstr "File Generato"
+msgstr "File generato"
 
 #. module: account_payment_order
 #: model:ir.model.fields,field_description:account_payment_order.field_account_payment_order__date_generated
@@ -460,7 +471,7 @@ msgstr "File caricato"
 #: model:ir.model.fields.selection,name:account_payment_order.selection__account_payment_mode__default_date_prefered__fixed
 #: model:ir.model.fields.selection,name:account_payment_order.selection__account_payment_order__date_prefered__fixed
 msgid "Fixed Date"
-msgstr "Data Fissa"
+msgstr "Data fissa"
 
 #. module: account_payment_order
 #: model:ir.model.fields,field_description:account_payment_order.field_account_payment_order__message_follower_ids
@@ -493,14 +504,14 @@ msgid ""
 "will select the bank account on the payment order. If your company only has "
 "one bank account, you should always select 'Fixed'."
 msgstr ""
-"Per le modalità di pagamento che sono sempre collegate allo stesso conto "
-"bancario della tua azienda (come bonifico bancario dai clienti o addebito "
-"diretto SEPA dai fornitori), seleziona \"Fisso\". Per le modalità di "
-"pagamento che non sono sempre collegate allo stesso conto bancario (ad "
-"esempio addebito diretto SEPA per clienti, bonifico a fornitori), è "
-"necessario selezionare \"Variabile\", il che significa che si selezionerà il "
-"conto bancario nell'ordine di pagamento. Se la tua azienda ha un solo conto "
-"bancario, dovresti sempre selezionare \"Fisso\"."
+"Per modi di pagamento che sono sempre collegati allo stesso conto bancario "
+"dell'azienda (come il bonifico bancario dai clienti o addebito diretto SEPA "
+"dai fornitori), selezionare 'FIsso'. Per modi di pagamento che non sono "
+"sempre collegati allo stesso conto bancario (come un addebito diretto SEPA "
+"dei clienti, bonifico bancario ai fornitori), bisogna selezionare "
+"'Variabile', che significa che il conto bancario verrà selezionato "
+"nell'ordine di pagamento. Se l'azienda ha un solo conto bancario, bisogna "
+"sempre selezionare 'Fisso'."
 
 #. module: account_payment_order
 #: model:ir.model.fields.selection,name:account_payment_order.selection__account_payment_line__communication_type__normal
@@ -667,7 +678,7 @@ msgstr "Filtro registri"
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_line_create_form
 msgid "Keep empty for using all journals"
-msgstr "Mantieni vuoto per l'utilizzo di tutti i registri"
+msgstr "Lasciare vuoto per l'utilizzo di tutti i registri"
 
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_payment_line_create_form
@@ -764,7 +775,7 @@ msgstr "Movimento"
 #: model:ir.model.fields,field_description:account_payment_order.field_account_payment_line_create__move_date
 #: model:ir.model.fields.selection,name:account_payment_order.selection__account_payment_line_create__date_type__move
 msgid "Move Date"
-msgstr "Data Movimento"
+msgstr "Data movimento"
 
 #. module: account_payment_order
 #: model:ir.model.fields,field_description:account_payment_order.field_account_payment_line_create__move_line_ids
@@ -942,6 +953,11 @@ msgstr "File di pagamento"
 #: model:ir.model.fields,field_description:account_payment_order.field_account_payment__payment_line_ids
 msgid "Payment Line"
 msgstr "Riga di pagamento"
+
+#. module: account_payment_order
+#: model:ir.model.fields,field_description:account_payment_order.field_account_payment__payment_line_date
+msgid "Payment Line Date"
+msgstr ""
 
 #. module: account_payment_order
 #: model:ir.actions.act_window,name:account_payment_order.account_payment_line_action
@@ -1299,7 +1315,8 @@ msgstr "Procedura guidata creazione righe di pagamento"
 msgid ""
 "You cannot delete an uploaded payment order. You can cancel it in order to "
 "do so."
-msgstr "Non si può eliminare un ordine pagamento caricato. Lo si può annullare."
+msgstr ""
+"Non si può eliminare un ordine pagamento caricato. Lo si può annullare."
 
 #. module: account_payment_order
 #: model_terms:ir.ui.view,arch_db:account_payment_order.account_invoice_payment_line_multi_form
